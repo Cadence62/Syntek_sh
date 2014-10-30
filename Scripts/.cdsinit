@@ -1,0 +1,60 @@
+
+if( getShellEnvVar("MGC_HOME") then
+  loadi( strcat( getShellEnvVar("MGC_HOME") "/shared/pkgs/icv/tools/queryskl/calibre.skl"))
+  )
+;
+
+when(!boundp('cdlOutKeys) cdlOutKeys = list(nil) )
+cdlOutKeys->incFILE = "/tools/Library/PDK/TSMC/CDB_tsmc18rf_1p6m_1ff_40k/Calibre/lvs/source.added"
+
+
+
+;GoldenGate_cdsinit_grep_pattern
+; @(#)$Id: .cdsinit_home,v 1.6 2009/12/23 19:43:54 cshyamsu Exp $
+if(getShellEnvVar("XPEDION") then
+	load(sprintf(nil "%s/aa/.cdsinit" getShellEnvVar("XPEDION")))
+else
+	printf(".cdsinit/.oceanrc: Environment variable XPEDION is not set!\n")
+)
+
+if(getShellEnvVar("HPEESOF_DIR") then
+	load(sprintf(nil "%s/idf/config/.cdsinit" getShellEnvVar("HPEESOF_DIR")))
+else
+	printf(".cdsinit/.oceanrc: Environment variable HPEESOF_DIR is not set!\n")
+)
+
+/*
+To make GoldenGate your default simulator, you can add the following line to
+your ~/.cdsenv file:
+
+asimenv.startup simulator string "GoldenGate"
+
+Alternatively, you can activate the envSetVal line by moving it outside this
+comment-block.
+
+envSetVal("asimenv.startup" "simulator" 'string "GoldenGate")
+*/
+
+
+
+load("/tools/Software/Skill/setCellLayerValid.ile" "zhangjiaxiaomu")
+hiSetBindKey("Layout" "<Key>n" "setCellLayerValid")
+hiSetBindKey("Layout" "Shift<Key>n" "setTechFileLayerValid()")
+hiSetBindKey("Layout" "Ctrl<Key>n" "leSetAllLayerValid(t)")
+
+lmgrd -c /tools/cadence/calibre/ixl_cal_2009.1_35.24/license/license.dat
+
+load("/tools/Software/Skill/L_ju_18.ile" "L_ju")
+loadContext("/tools/Software/Scripts/PAD/padInfo.cxt")
+load("/tools/Software/Scripts/PAD/usermenu_v0.ile")
+
+
+
+
+
+
+
+
+
+
+

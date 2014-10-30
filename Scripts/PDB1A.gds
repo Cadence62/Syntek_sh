@@ -1,0 +1,34 @@
+
+********************************************************************************
+Product   : Virtuoso(R) STREAM Out
+Program   : @(#)$CDS: pipo.exe version 5.1.0 06/13/2005 23:48 (cicln01) $
+SubVersion: sub-version 5.10.41.500.1.20
+Started at: 16-May-2013  09:25:06
+User Name : root
+Host Name : localhost.localdomain
+Directory : /tools/Software/Scripts
+CADENCE Design Systems, Inc.
+********************************************************************************
+
+
+Reading Cadence database ...
+*WARNING* The directory: '/root/RX_VGA_RZX' does not exist
+	but was defined in libFile '/root/cds.lib' for Lib 'RX_VGA_RZX'.
+*WARNING* The directory: '/root/RX_VGA_simulation' does not exist
+	but was defined in libFile '/root/cds.lib' for Lib 'RX_VGA_simulation'.
+Initializing from libInit.il for library tsmc18rf...
+   --  tsmc18rf_updateCDFs.ile
+   --  tsmc18rf.cxt
+*WARNING* The directory: '/root/RX_VGA' does not exist
+	but was defined in libFile '/root/cds.lib' for Lib 'RX_VGA'.
+*WARNING* The directory: '/root/RX_VGA_RZX' does not exist
+	but was defined in libFile '/root/cds.lib' for Lib 'RX_VGA_RZX'.
+*WARNING* The directory: '/root/RX_VGA_simulation' does not exist
+	but was defined in libFile '/root/cds.lib' for Lib 'RX_VGA_simulation'.
+
+*** There were no error or warning message ***
+
+Statistic and more information, please check /root/simulation/PIPO.LOG.PDB1A file.
+
+NORMAL EXIT ...
+

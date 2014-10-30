@@ -1,0 +1,22 @@
+#!/bin/bash
+#program 
+# 一件加入所有的库
+#History  1.1
+#2014.2.20
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+
+
+list=(`ls`)
+num=${#list[@]} 
+
+list2=(`ls|awk 'BEGIN {FS="."}{printf("%s.%s.%s\n",$1,$2,$3)}'`)
+
+#$echo "$num"
+for((i=1;i<$num;i++))
+do
+echo "${list[i]}"
+echo "${list2[i]}"
+ln -s ${list[i]} ${list2[i]}
+done
+exit
