@@ -14,10 +14,10 @@ class Function(object):
         list = [x for x in os.listdir(filedir) if os.path.isfile(x) and os.path.splitext(x)[1] == '.pdf']
         # ['copy.py', 'ez_setup.py', 'int_for.py'] 找出当前文件夹系下面包含.py的文件取出文件名。
 
-        #print list
+        # print list
         for file_name in list:
             newfile_name = file_name[:-4]
-            #取出前缀
+            # 取出前缀
             #copy int_for
             newdir = os.path.join(intput_dir, newfile_name)
             #拼接地址
@@ -42,12 +42,20 @@ class Function(object):
         os.chdir(filedir)
         delete_name = '.pdf'
         for filename in os.listdir(filedir):
+            #创建地址循环
             if os.path.isdir(os.path.join(filedir, filename)):
+                #判断文件是不是目录
                 self.fun_delete_cdslck(os.path.abspath(os.path.join(filedir, filename)))
+                #是目侧则返回子目录地址 重调功能
             elif os.path.isfile(os.path.join(filedir, filename)):
+                #判断是不是是文件
                 if delete_name in filename:
-                    rm_name = os.path.abspath(filename) #打印的是当前目录
+                    #判断文件是不是带有自定义的字符串
+                    rm_name = os.path.abspath(filename)
+                    # 返回文件的绝对路径 返回的是的是当前工作目录+文件名 不是原地址 所以最上面要先进入工作目录
                     print rm_name
+
+
 '''
 os.listdir(dirname)：列出dirname下的目录和文件
 os.getcwd()：获得当前工作目录
@@ -72,13 +80,13 @@ os.remove(dir) #dir为要删除的文件夹或者文件路径
 os.rmdir(path) #path要删除的目录的路径。需要说明的是，使用os.rmdir删除的目录必须为空目录，否则函数出错。
 '''
 
-
-
-
-intput_dir = '/home/mengfan/Desktop/sdfasd'
+#intput_dir = '/home/mengfan/Desktop/sdfasd'
 text = Function()
-# 1 text.fun_pdf2txt(intput_dir)
-text.fun_delete_cdslck(intput_dir)
+select = {'A': text.fun_pdf2txt, 'B': text.fun_delete_cdslck}
+
+intput_number = raw_input("请输入你要执行的个功能: ")
+intput_dir = raw_input("请输入你要执行的中地址： \n")
+select.get(intput_number, 'A/B')(intput_dir)
 exit()
 
 '''
